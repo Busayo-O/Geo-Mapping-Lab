@@ -19,25 +19,42 @@ The analysis identifies public IP addresses that monitored devices communicate w
 
 <h2>How it was deployed</h2>
 
--  Sign in to the Microsoft Defender portal.
--  Navigate to Hunting > Advanced Hunting.
--  Select the DeviceNetworkEvents table.
--  Paste the KQL query into the query editor.
--  Select the desired time range.
--  Click Run query.
--  Review the results, including remote IP addresses, connection counts, affected devices, processes, and destination ports.
--  To visualize geographical locations, create an Azure Monitor Workbook or Microsoft Sentinel Workbook using the query results.
--  Configure a map visualization using the Latitude and Longitude fields.
+-  Signed in to the Microsoft Defender portal.
+-  Navigated to Hunting > Advanced Hunting.
+-  Selected the DeviceNetworkEvents table.
+-  Pasted the KQL query into the query editor.
+-  Selected the desired time range.
+-  Clicked Run query.
+-  Reviewed the results, including remote IP addresses, connection counts, affected devices, processes, and destination ports.
+-  Used to visualize geographical locations, created an Azure Monitor Workbook or Microsoft Sentinel Workbook using the query results.
+-  Configured a map visualization using the Latitude and Longitude fields.
+
+
+<h2>Objectives</h2>
+
+- Identified public IP addresses communicating with monitored devices.
+- Investigated outbound network connections.
+- Identified external geographical destinations.
+- Excluded selected common Microsoft-related domains from the analysis.
+- Identified devices communicating with external IP addresses.
+- Identified processes initiating outbound network connections.
+- Identified frequently contacted external IP addresses.
+- Analyzed destination ports used during network communication.
+- Support network threat hunting and incident investigations.
 
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<h2>A) KQL Query – Advanced Hunting:</h2>
+ 
+Screenshot showing the KQL query running successfully in Microsoft Defender Advanced Hunting.: <br/>
+<img src="https://i.imgur.com/rks1NQt.png" height="80%" width="80%"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<h2>B) Geographic Network Connections Map
+
+Screenshot showing the geographical origins of external network connections using the Microsoft Sentinel Workbook.:  <br/>
+<img src= "https://i.imgur.com/nufKEUn.png" height="80%" width="80%"/>
 <br />
 <br />
 Enter the number of passes: <br/>
