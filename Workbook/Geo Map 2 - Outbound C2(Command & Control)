@@ -1,13 +1,19 @@
-<h1>JWipe - Disk Sanitization</h1>
+<h1>JWipe - Outbound Network Connections</h1>
+Description</h2>
+In this project, Microsoft Defender XDR Advanced Hunting and Kusto Query Language (KQL) were used to investigate outbound network connections from monitored devices (Virtual Machines in the Cyber Range).
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
-
-<h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
+The analysis identifies public IP addresses that monitored devices communicate with using the DeviceNetworkEvents table. It enriches external IP addresses with geographical information and identifies the number of network connections, affected devices, initiating processes, destination ports, and sample URLs.
 <br />
 
-
-<h2>Languages and Utilities Used</h2>
+Tools & Technologies Used
+-Microsoft Defender XDR
+-Microsoft Defender Advanced Hunting
+-Microsoft Sentinel
+-Azure Monitor Workbooks
+-Log Analytics Workspace
+-Kusto Query Language (KQL)
+-IP Geolocation (geo_info_from_ip_address())
+-DeviceNetworkEvents</h2>
 
 - <b>PowerShell</b> 
 - <b>Diskpart</b>
