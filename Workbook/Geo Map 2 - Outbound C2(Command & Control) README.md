@@ -48,15 +48,43 @@ The analysis identifies public IP addresses that monitored devices communicate w
 <h2>A) KQL Query – Advanced Hunting:</h2>
  
 Screenshot showing the KQL query running successfully in Microsoft Defender Advanced Hunting.: <br/>
-<img src="https://i.imgur.com/rks1NQt.png" height="80%" width="80%"/>
-<br />
-<br />
-<h2>B) Geographic Network Connections Map
 
-Screenshot showing the geographical origins of external network connections using the Microsoft Sentinel Workbook.:  <br/>
+<img src="https://i.imgur.com/rks1NQt.png" height="80%" width="80%"/>
+
+
+<h2>B) Geographic Network Connections Map:</h2>
+
+Screenshot showing the geographical origins of external network connections using the Microsoft Sentinel Workbook.: 
+
 <img src= "https://i.imgur.com/nufKEUn.png" height="80%" width="80%"/>
 <br />
 <br />
+
+
+<h2>Analysis Performed:</h2>
+
+-  Public IP Filtering: Identified network connections involving public IP addresses.
+-  Geolocation Enrichment: Used IP geolocation to identify the approximate country, state, city, latitude, and longitude associated with external IP addresses.
+-  Connection Aggregation: Counted the total number of network connections to each external IP address.
+-  Device Analysis: Identified the number of distinct devices communicating with each external IP.
+-  Process Analysis: Identified the processes responsible for initiating network connections.
+-  Port Analysis: Collected destination ports associated with external network communication.
+-  Activity Threshold: Filtered for external IP addresses with at least five recorded connections.
+-  Geographic Visualization: Prepared geographical coordinates and labels for map-based security analysis.
+
+
+<h2> Security Value:</h2>
+
+This analysis helped to:
+-  Investigate outbound network communication.
+-  Identify unusual external IP addresses.
+-  Discover repeated connections to external destinations.
+-  Identify processes responsible for network activity.
+-  Investigate devices communicating with potentially suspicious IP addresses.
+-  Examine unusual destination ports.
+-  Support threat hunting and incident response investigations.
+-  Improve visibility into external network communication patterns.</h2>
+
 Enter the number of passes: <br/>
 <img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
