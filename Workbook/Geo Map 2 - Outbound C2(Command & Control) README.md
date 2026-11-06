@@ -1,11 +1,13 @@
-<h1>JWipe - Outbound Network Connections</h1>
-Description</h2>
+<h1> Outbound Network Connections</h1>
+<h2></h2>Description</h2>
+
 In this project, Microsoft Defender XDR Advanced Hunting and Kusto Query Language (KQL) were used to investigate outbound network connections from monitored devices (Virtual Machines in the Cyber Range).
 
 The analysis identifies public IP addresses that monitored devices communicate with using the DeviceNetworkEvents table. It enriches external IP addresses with geographical information and identifies the number of network connections, affected devices, initiating processes, destination ports, and sample URLs.
 <br />
 
-Tools & Technologies Used
+<h3></h3>Tools & Technologies Used</h3>
+
 -Microsoft Defender XDR
 -Microsoft Defender Advanced Hunting
 -Microsoft Sentinel
