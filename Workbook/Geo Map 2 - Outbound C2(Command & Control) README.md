@@ -85,33 +85,28 @@ This analysis helped to:
 -  Support threat hunting and incident response investigations.
 -  Improve visibility into external network communication patterns.</h2>
 
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+<h2> Output:</h2>
+ 
+The query produced geographical coordinates and network activity statistics that is used to visualize external network connections on a geographical map.
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
-m
+<h2> Key Metrics:</h2>
+
+ - Remote IP addresses
+ - Countries, states, and cities
+ - Latitude and longitude
+ - Total network connections
+ - Number of affected devices
+ - Initiating processes
+ - Destination ports
+
+<h2> Conclusion:</h2>
+
+The project demonstrated how Kusto Query Language (KQL) is used to investigate outbound network connections, identify external communication patterns, and enrich public IP addresses with geographical information.
+
+The use of Microsoft Defender Advanced Hunting, network event analysis, and IP geolocation, helps to improve network visibility, investigate potentially suspicious connections, and support proactive threat hunting within the cybersecurity environment.
+
+
+
+
+
+
