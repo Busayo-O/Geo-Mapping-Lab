@@ -15,42 +15,56 @@ This project analyzes outbound network traffic by volume to identify how much da
 - <b>Windows 10</b> (21H2)
 
 <h2>Program walk-through:</h2>
+KQL QUERY:
 
-<p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
+```kql
+NTANetAnalytics
+| where TimeGenerated {TimeRange}
+| where SubType == "FlowLog"
+| where isnotempty(DestPublicIps)
+| extend Parts = split(DestPublicIps, "|")
+| where array_length(Parts) >= 7
+| extend PublicIp = tostring(Parts[0]),
+         AllowedFlows = tolong(Parts[3]),
+         DeniedFlows = tolong(Parts[4]),
+         BytesIn = tolong(Parts[5]),
+         BytesOut = tolong(Parts[6])
+| where isnotempty(PublicIp)
+| where BytesOut > 0
+| extend geo = geo_info_from_ip_address(PublicIp)
+| extend Latitude = toreal(geo.latitude),
+         Longitude = toreal(geo.longitude),
+         Country = tostring(geo.country),
+         City = tostring(geo.city)
+| where isnotempty(City) and isnotempty(Country)
+| where isnotempty(Latitude) and isnotempty(Longitude)
+| summarize TotalBytesOut = sum(BytesOut),
+            TotalBytesIn = sum(BytesIn),
+            Sources = dcount(SrcIp),
+            Ports = make_set(DestPort, 15) by PublicIp, Country, City, Latitude, Longitude
 ```
---!>
+
+kql-query.png
+
+Screenshot showing your KQL query
+<img src="https://i.imgur.com/hJuTrrX.png" height="80%" width="80%"/>
+
+<br />
+<br />
+geographic-traffic-map.png
+
+Screenshot using JSON file showing the geographic distribution of outbound connections.:  <br/>
+<img src="https://i.imgur.com/QzAC50a.png" height="80%" width="80%"/>
+
+Screenshot showing a larger circle, indicating the data sent to the specific location geographic distribution of outbound connections with areas with large MB .:  <br/>
+<img src="https://i.imgur.com/PulP0AG.png" height="80%" width="80%"/>
+
+Screen shot showing that dAta was sent to the United States
+<img src="https://i.imgur.com/52MBTe2.png" height="80%" width="80%"/>
+
+<br />
+<br />
+
+
+
+
