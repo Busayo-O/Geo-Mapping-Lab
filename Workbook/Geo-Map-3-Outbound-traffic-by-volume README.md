@@ -1,16 +1,36 @@
 <h1>Outbound Traffic by Volume - Exfiltration Detection</h1>
 
 <h2>Description</h2>
-This project analyzes outbound network traffic by volume to identify how much data is being sent to external IP addresses, measured in Megabytes, gigabytes, and terabytes. It gives visibility into where data is going.
+This project analyzes outbound network traffic by volume to identify how much data is being sent to external IP addresses, measured in Megabytes, gigabytes, and terabytes. By Using Microsoft Sentinel, Azure Log Analytics, KQL, and Azure Monitor Workbooks, the project analyzes network traffic volume, identified external destination IP addresses, and visualized outbound traffic geographically. It gave visibility into where data is going.
 <br />
 
+<h2> Objectives </h2>
 
-<h2>Languages and Utilities Used</h2>
+- Monitor outbound network traffic.
+- Identify external IP addresses receiving large amounts of data.
+- Calculate outbound data transfers in MB, GB, and TB.
+- Identify countries and cities associated with public destination IPs.
+- Highlight unusual traffic patterns for further investigation.
+- Build a geographic visualization dashboard.
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
+<h2>Tools and Technologies</h2>
 
-<h2>Environments Used </h2>
+- Microsoft Sentinel for Security Monitoring
+- Azure log Analytics for Network log Analysis
+- KQL for Querying and analyzing network traffic
+- Azure Monitor Workbook for Data visualization
+- NTANetAnalytics for Network traffic analytics
+
+
+<h2>Data Source </h2>
+
+
+- TimeGenerated
+- SourceIp(SrcIp)
+- Destination Public Ips
+- Destination Port
+- BytesOut
+- BytesIn
 
 - <b>Windows 10</b> (21H2)
 
