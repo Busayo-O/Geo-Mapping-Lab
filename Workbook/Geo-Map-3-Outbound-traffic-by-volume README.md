@@ -21,19 +21,6 @@ This project analyzes outbound network traffic by volume to identify how much da
 - Azure Monitor Workbook for Data visualization
 - NTANetAnalytics for Network traffic analytics
 
-
-<h2>Data Source </h2>
-
-
-- TimeGenerated
-- SourceIp(SrcIp)
-- Destination Public Ips
-- Destination Port
-- BytesOut
-- BytesIn
-
-- <b>Windows 10</b> (21H2)
-
 <h2>Program walk-through:</h2>
 KQL QUERY:
 
