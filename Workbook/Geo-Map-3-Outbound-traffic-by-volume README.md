@@ -82,9 +82,39 @@ Screenshot showing a larger circle, indicating the data sent to the specific loc
 Screen shot showing that dAta was sent to the United States
 <img src="https://i.imgur.com/52MBTe2.png" height="80%" width="80%"/>
 
-<br />
-<br />
 
+<br> KQL Analysis performed the following activities:
+-  Filtered network flow records by time range.
+-  Extract public destination IP addresses.
+-  Calculated outbound and inbound traffic volume.
+-  Enrich public IP addresses with geographic information.
+-  Group traffic by destination IP, country, and city.
+-  Identify destinations with high outbound traffic volume.
 
+<br /> Security Value
+Large outbound traffic volumes can be an indicator of unusual data transfers.
+
+This analysis was used to investigate:
+- Unexpected external connections.
+- Unusual data transfer patterns.
+- Suspicious destination IP addresses.
+- Potential data exfiltration activity.
+  
+<br /> Output
+- After running the KQL queries in Microsoft Sentinel, the output is a list of external destination IP addresses ranked by the amount of outbound traffic they receive. The map displayed.
+- The results helped to identify the external destinations receiving the largest volume of data from the network.
+- Some external IP addresses receive significantly more outbound traffic than others.
+- Multiple internal devices communicated with the same external destination.
+- some destinations receive traffic through unexpected ports.
+- Each bubble represents an external destination. Larger bubbles indicate higher outbound traffic volume
+
+These observations helps to identify potentially suspicious data-transfer patterns.
+
+<br> Conclusion
+- This project demonstrated how KQL and Azure Monitor Workbooks can be used to monitor and analyze outbound network traffic.
+- By querying the NTANetAnalytics table, I was able to develop an approach for identifying external destination IP addresses, measuring outbound traffic volume, and visualizing destination locations using IP geolocation.
+- The analysis helped in recognizing unusual outbound traffic patterns, identify high-volume external destinations, and prioritize activities that may require further investigation.
+- It also helped to demonstrate the importance of network traffic monitoring in identifying potential data exfiltration risks.
+- High outbound traffic volume is not automatically evidence of data theft. It is an indicator that requires further investigation, including checking the destination, source device, user activity, application, and business purpose.
 
 
