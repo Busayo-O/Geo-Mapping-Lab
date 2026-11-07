@@ -88,10 +88,11 @@ This analysis was used to investigate:
 - Potential data exfiltration activity.
   
 <br /> Output
-- After running the KQL queries in Microsoft Sentinel, the output is a list of external destination IP addresses ranked by the amount of outbound traffic they receive. The map displayed.
+- A geographic map displaying external destination IP addresses and their locations.
+- A list of public IP addresses receiving outbound network traffic ranked by the amount of outbound traffic received.
+- Outbound data transfer volumes measured in MB, GB, or TB.
 - The results helped to identify the external destinations receiving the largest volume of data from the network.
 - Some external IP addresses receive significantly more outbound traffic than others.
-- Multiple internal devices communicated with the same external destination.
 - some destinations receive traffic through unexpected ports.
 - Each bubble represents an external destination. Larger bubbles indicate higher outbound traffic volume
 
